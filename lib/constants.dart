@@ -87,3 +87,5 @@ final TextStyle sCountryPercentage = TextStyle(
       .fontFamily,
   color: themeBlueNumber,
 );
+
+String apiUrlAll = 'https://corona.lmao.ninja/all';

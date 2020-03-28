@@ -7,6 +7,7 @@ import '../widgets/world_row3.dart';
 import '../widgets/by_category.dart';
 import '../widgets/countries_table_header.dart';
 import 'package:sticky_headers/sticky_headers.dart';
+import '../services/fetch_api.dart';
 
 class WorldStatsScreen extends StatefulWidget {
   @override
@@ -55,6 +56,16 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
         }
       });
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      FetchAPI(url: apiUrlAll).getDecodedBody();
+    } catch (e) {
+      print('Error234: $e');
+    }
   }
 
   @override
