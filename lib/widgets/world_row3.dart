@@ -6,7 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class WorldRow3 extends StatelessWidget {
   final Color statusColor;
   final String title;
-  WorldRow3({this.statusColor, this.title});
+  final String number;
+  WorldRow3({this.statusColor, this.title, this.number});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +26,11 @@ class WorldRow3 extends StatelessWidget {
               ),
             ]),
             Text(
-              '1 223 293',
+              number ?? '.',
               style: sWorldRow3Number,
             ),
             Text(
-              '0.3%',
+              '%',
               style: sWorldRow3Percentage,
             ),
             SizedBox(

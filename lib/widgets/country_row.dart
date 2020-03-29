@@ -2,6 +2,18 @@ import 'package:corona_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class CountryRow extends StatelessWidget {
+  final String confirmedNo;
+  final String activeNo;
+  final String diedNo;
+  final String recoveredNo;
+  final String country;
+
+  CountryRow(
+      {this.country,
+      this.activeNo,
+      this.confirmedNo,
+      this.diedNo,
+      this.recoveredNo});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +32,7 @@ class CountryRow extends StatelessWidget {
                     bottom: grid2,
                   ),
                   child: Text(
-                    'USA',
+                    country ?? '',
                     style: sCountryTitle,
                   ),
                 ),
@@ -30,15 +42,15 @@ class CountryRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Text(
-                  '349 239',
+                  activeNo ?? '',
                   style: sCountryNumber.copyWith(color: themeOrange),
                 ),
-                Text('219 239',
+                Text(diedNo ?? '',
                     style: sCountryNumber.copyWith(color: themeRed)),
-                Text('319 239',
+                Text(recoveredNo ?? '',
                     style: sCountryNumber.copyWith(color: themeGreen)),
                 Text(
-                  '925 239',
+                  confirmedNo ?? '',
                   style: sCountryNumber,
                 ),
               ],
@@ -47,19 +59,19 @@ class CountryRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Text(
-                  '12%',
+                  '%',
                   style: sCountryPercentage,
                 ),
                 Text(
-                  '19%',
+                  '%',
                   style: sCountryPercentage,
                 ),
                 Text(
-                  '39%',
+                  '%',
                   style: sCountryPercentage,
                 ),
                 Text(
-                  '23%',
+                  '%',
                   style: sCountryPercentage,
                 ),
               ],

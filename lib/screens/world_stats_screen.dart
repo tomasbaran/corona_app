@@ -7,7 +7,8 @@ import '../widgets/world_row3.dart';
 import '../widgets/by_category.dart';
 import '../widgets/countries_table_header.dart';
 import 'package:sticky_headers/sticky_headers.dart';
-import '../services/fetch_api.dart';
+import '../models/region_data.dart';
+import '../models/region.dart';
 
 class WorldStatsScreen extends StatefulWidget {
   @override
@@ -58,14 +59,19 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
     });
   }
 
+  RegionData worldData = RegionData();
+  //RegionData countriesData = RegionData();
+
+  void fetchData() async {
+    await worldData.fetchWorldData();
+    //await countriesData.fetchCountries();
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
-    try {
-      FetchAPI(url: apiUrlAll).getDecodedBody();
-    } catch (e) {
-      print('Error234: $e');
-    }
+    fetchData();
   }
 
   @override
@@ -128,7 +134,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: grid1),
                       child: Text(
-                        'Last update: 13/03/2018, 19:30 GMT',
+                        'Last update: ${worldData.updated ?? ''}',
                         style: Theme.of(context).textTheme.caption,
                         textAlign: TextAlign.left,
                       ),
@@ -149,7 +155,9 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
                         SizedBox(
                           height: grid1,
                         ),
-                        WorldRow1(),
+                        WorldRow1(
+                          number: worldData.confirmed,
+                        ),
                         SizedBox(
                           height: grid3,
                         ),
@@ -159,6 +167,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
                             WorldRow3(
                               statusColor: themeOrange,
                               title: 'ACTIVE',
+                              number: worldData.active,
                             ),
                             SizedBox(
                               width: grid3,
@@ -166,6 +175,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
                             WorldRow3(
                               statusColor: themeRed,
                               title: 'DIED',
+                              number: worldData.died,
                             ),
                             SizedBox(
                               width: grid3,
@@ -173,6 +183,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
                             WorldRow3(
                               statusColor: themeGreen,
                               title: 'RECOVERED',
+                              number: worldData.recovered,
                             ),
                           ],
                         ),
@@ -201,21 +212,19 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
                           ],
                         ),
                       ),
-                      content: Column(
-                        children: <Widget>[
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                          CountryRow(),
-                        ],
+                      content: FutureBuilder(
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                                  ConnectionState.none &&
+                              snapshot.hasData == null) {
+                            print('project snapshot data is: ${snapshot.data}');
+                            return Text('waiting for data');
+                          }
+                          return Column(
+                            children: snapshot.data ?? <Widget>[CountryRow()],
+                          );
+                        },
+                        future: listOfCountries(),
                       ),
                     ),
                   ],
@@ -227,4 +236,21 @@ class _WorldStatsScreenState extends State<WorldStatsScreen> {
       ),
     );
   }
+}
+
+Future<List<Widget>> listOfCountries() async {
+  RegionData countriesData = RegionData();
+  await countriesData.fetchCountries();
+  List<Widget> list = [];
+  for (Region country in countriesData.listOfRegions) {
+    //print('countryName: ${country.regionName}');
+    list.add(CountryRow(
+      country: country.regionName,
+      confirmedNo: country.confirmed,
+      diedNo: country.died,
+      recoveredNo: country.recovered,
+      activeNo: country.active,
+    ));
+  }
+  return list;
 }
