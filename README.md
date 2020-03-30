@@ -1,4 +1,4 @@
-# corona_app
+# COVID-19 Tracker
 
 Coronavirus tracker
 
