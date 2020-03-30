@@ -16,10 +16,12 @@ class FetchListOfJsonsApi {
       http.Response response = await http.get(url);
       int status = response.statusCode;
       String body = response.body;
-      //print('response.status: ${response.statusCode}');
-      //print('response.body: ${response.body}');
-      //print('response.runtimeType: ${response.runtimeType}');
-      //print('response.isRedirect: ${response.isRedirect}');
+      print('FetchListOfJsonsApi(): response.status: ${response.statusCode}');
+      print('FetchListOfJsonsApi(): response.body: ${response.body}');
+      print(
+          'FetchListOfJsonsApi(): response.runtimeType: ${response.runtimeType}');
+      print(
+          'FetchListOfJsonsApi(): response.isRedirect: ${response.isRedirect}');
 
       if (status == 200 || status == 201) {
         List<dynamic> decodedBody = jsonDecode(body);
@@ -29,7 +31,7 @@ class FetchListOfJsonsApi {
       } else
         throw ('Status: $status');
     } catch (e) {
-      print('Error getting response: $e \n \n');
+      print('Error getting response in FetchListOfJsonsApi(): $e \n \n');
       return null;
     }
   }

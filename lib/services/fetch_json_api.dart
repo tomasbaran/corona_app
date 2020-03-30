@@ -16,10 +16,10 @@ class FetchJsonApi {
       http.Response response = await http.get(url);
       int status = response.statusCode;
       String body = response.body;
-      //print('response.status: ${response.statusCode}');
-      //print('response.body: ${response.body}');
-      //print('response.runtimeType: ${response.runtimeType}');
-      //print('response.isRedirect: ${response.isRedirect}');
+      print('FetchJsonApi(): response.status: ${response.statusCode}');
+      print('FetchJsonApi(): response.body: ${response.body}');
+      print('FetchJsonApi(): response.runtimeType: ${response.runtimeType}');
+      print('FetchJsonApi(): response.isRedirect: ${response.isRedirect}');
 
       if (status == 200 || status == 201) {
         Map<String, dynamic> decodedBody = jsonDecode(body);
@@ -29,7 +29,7 @@ class FetchJsonApi {
       } else
         throw ('Status: $status');
     } catch (e) {
-      print('Error getting response: $e \n \n');
+      print('Error getting response in FetchJsonApi(): $e \n \n');
       return null;
     }
   }
