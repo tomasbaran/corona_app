@@ -6,6 +6,9 @@ Coronavirus tracker
 
 Let's fight this virus together by adding data to the app
 
+[screenshot of 0.1 version]
+![](README/screenshot.png)
+
 --------------------------------------------------------------
 
 [update Apr 2, 2020] The project was discontinued due to Apple's and Google's restriction on apps that try to fight the COVID-19 epidemic unless are published by governments or health organizations.
