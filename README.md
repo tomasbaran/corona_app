@@ -7,7 +7,9 @@ Coronavirus tracker
 Let's fight this virus together by adding data to the app
 
 [screenshot of 0.1 version]
-![](README/screenshot.png)
+
+
+<img src="README/screenshot.png" width="400" />
 
 --------------------------------------------------------------
 
