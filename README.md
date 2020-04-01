@@ -16,11 +16,12 @@ Live web app created by Flutter. For best experience open it up on a smart phone
 
 ---
 
-## Project Discountinuation [Apr 2, 2020] 
+#### Project Discountinuation [Apr 2, 2020] 
 The project was discontinued due to Apple's and Google's restriction on apps that try to fight the COVID-19 epidemic unless are published by governments or health organizations.
 
 ## Summary
-It was a 25 hour-long project in total:
+It was a 25 hour-long project in total.
+
 ![](README/project_hours.png)
 
 
