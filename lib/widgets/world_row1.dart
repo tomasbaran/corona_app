@@ -17,7 +17,7 @@ class WorldRow1 extends StatelessWidget {
             style: sWorldRow1Number,
           ),
           Text(
-            '0.3%',
+            '',
             style: sWorldRow1Percentage,
           ),
           SizedBox(

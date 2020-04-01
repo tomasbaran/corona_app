@@ -59,19 +59,19 @@ class CountryRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Text(
-                  '%',
+                  '',
                   style: sCountryPercentage,
                 ),
                 Text(
-                  '%',
+                  '',
                   style: sCountryPercentage,
                 ),
                 Text(
-                  '%',
+                  '',
                   style: sCountryPercentage,
                 ),
                 Text(
-                  '%',
+                  '',
                   style: sCountryPercentage,
                 ),
               ],
