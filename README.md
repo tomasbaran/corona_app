@@ -6,16 +6,17 @@ Coronavirus tracker
 
 Let's fight this virus together by adding data to the app
 
-<hr />
 
-[screenshot of 0.1 version]
+
+## screenshot of 0.1 version
 
 
 <img src="README/screenshot.png" width="400" />
 
 ---
 
-[update Apr 2, 2020] The project was discontinued due to Apple's and Google's restriction on apps that try to fight the COVID-19 epidemic unless are published by governments or health organizations.
+#### Project Discountinuation [Apr 2, 2020] 
+The project was discontinued due to Apple's and Google's restriction on apps that try to fight the COVID-19 epidemic unless are published by governments or health organizations.
 
 It was a 25 hour-long project in total:
 ![](README/project_hours.png)
