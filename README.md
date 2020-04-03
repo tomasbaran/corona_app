@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/tomasbaran/a50793a0-70d8-495b-8856-047c8294dc94/956e723c-67d8-441d-b47a-2445610f9dff/_apis/work/boardbadge/d8166a18-459b-4bc7-a779-384857a511bc)](https://dev.azure.com/tomasbaran/a50793a0-70d8-495b-8856-047c8294dc94/_boards/board/t/956e723c-67d8-441d-b47a-2445610f9dff/Microsoft.RequirementCategory)
 # COVID-19 Tracker
 
 ## Vision
