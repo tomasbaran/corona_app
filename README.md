@@ -2,8 +2,7 @@
 
 ## Vision
 
-Let's fight this virus together by adding data to the app
-
+Collect data by the community and scan whether we are surrounded by anyone that potentially could be contagious (via BT and GPS). 
 
 
 ## Screenshot of 0.1 version
